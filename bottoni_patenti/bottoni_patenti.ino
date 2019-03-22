@@ -1,13 +1,12 @@
 #include <LiquidCrystal.h>
-
-int luce = 13;
+int luce = 12;
 int buzzer = 11;
-int buttone = 9;
+int buttone = 13;
 int riflesso;
 int riflesso2;
 double wait;
-String appoggio;
-LiquidCrystal lcd(2, 3, 7, 6, 5, 4);
+String appoggio; String appoggio2;
+LiquidCrystal lcd(0, 1,4, 5, 6, 7);
 
 void setup() {
   // put your setup code here, to run once:
@@ -15,15 +14,39 @@ void setup() {
  pinMode(buzzer, OUTPUT);
  pinMode(buttone, INPUT);
  lcd.begin(16, 2);
-
- lcd.setCursor(0, 0);
- lcd.print("PETALOSO");
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
+  //per pulire dal test precedente
    accensioneLed();
    riflessione();
+   lcd.setCursor(0, 0);
+   lcd.print(riflesso);
+   lcd.print(" ms");
+  /* if(riflesso > 500)
+   {
+    lcd.setCursor(12, 0);
+    lcd.print("male");
+   }
+   else
+   {
+    lcd.setCursor(12, 0);
+    lcd.print("bene");
+   }
+   lcd.setCursor(0, 1);
+   lcd.print(riflesso2);
+   lcd.print(" ms");
+   if(riflesso2 > 500)
+   {
+    lcd.setCursor(12, 1);
+    lcd.print("male");
+   }
+   else
+   {
+    lcd.setCursor(12, 1);
+    lcd.print("bene");
+   }*/
 }
 void accensioneLed()
 {
